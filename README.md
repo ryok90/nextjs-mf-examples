@@ -1,6 +1,8 @@
 # Next.js - Module Federation - Plugin Version Matching
 
-This repository contains several small samples on different matching versions of `Next.js` framework and `@module-federation/nextjs-mf` plugin
+This repository contains several small samples on different matching versions of `Next.js` framework and `@module-federation/nextjs-mf` plugin.
+
+The samples prefixed with "shared-deps" has examples on dependency sharing and the interation between host and remote, always trying to maintain the host's version over the remote.
 
 ![npm](https://img.shields.io/npm/dw/@module-federation/nextjs-mf)
 
