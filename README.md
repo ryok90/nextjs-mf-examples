@@ -1,12 +1,6 @@
-# Template
+# Next.js - Module Federation - Plugin Version Matching
 
-This is a template for creating a new Next.js + MF sample.
-
-## Deploy to Zephyr Cloud
-
-Click the button below to deploy this sample to Zephyr Cloud.
-
-<!-- TODO: replace the badge button below with Deploy to Zephyr Button -->
+This repository contains several small samples on different matching versions of `Next.js` framework and `@module-federation/nextjs-mf` plugin
 
 ![npm](https://img.shields.io/npm/dw/@module-federation/nextjs-mf)
 
@@ -17,7 +11,7 @@ Click the button below to deploy this sample to Zephyr Cloud.
   ├ host            (A nextjs@13+ host app)
   ├ remote          (A nextjs@13+ remote app)
   ├ package.json    (Package file with scripts to run all apps at once)
-  └ README.md       (This readme file to explain how to run the sample and deploy it using Zephyr)
+  └ README.md       (This readme file to explain how to run the sample)
 ```
 
 ## Sample Stack
@@ -27,19 +21,19 @@ Click the button below to deploy this sample to Zephyr Cloud.
 
 ## How to run the sample
 
-To run the sample in development mode, run the following command:
+To run the samples in development mode, run the following command:
 
 ```bash
 npm run dev
 ```
 
-To run the sample in production mode, first build the sample using the following command:
+To run the samples in production mode, first build the samples using the following command:
 
 ```bash
 npm run build
 ```
 
-Then, run the following command to serve the sample:
+Then, run the following command to serve the samples:
 
 ```bash
 npm run start
