@@ -18,10 +18,10 @@ const nextConfig = {
         },
         shared: {
           'local-package': {
-            version: '1.5.0',
-            strictVersion: false,
-            requiredVersion: '^1.0.0',
             singleton: true,
+            strictVersion: false,
+            version: '1.5.0',
+            requiredVersion: '^1.0.0',
           },
         },
       })

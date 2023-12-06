@@ -1,5 +1,6 @@
 {
   "name": "template",
+  "license": "UNLICENSED",
   "workspaces": [
     "./apps/*"
   ],
