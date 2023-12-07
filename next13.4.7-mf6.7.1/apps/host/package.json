@@ -1,16 +1,16 @@
 {
-  "name": "template-remote",
+  "name": "template-host",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3011",
+    "dev": "next dev -p 3010",
     "build": "next build",
-    "start": "next start -p 3011",
+    "start": "next start -p 3010",
     "lint": "next lint"
   },
   "dependencies": {
     "@module-federation/nextjs-mf": "6.7.1",
-    "next": "13.4.19",
+    "next": "13.4.7",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
