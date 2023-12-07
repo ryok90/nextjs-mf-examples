@@ -1,10 +1,20 @@
-# Next.js - Module Federation - Plugin Version Matching
+# Next.js <> Module Federation Plugin - Version Matching
+![npm](https://img.shields.io/npm/dw/@module-federation/nextjs-mf)
 
 This repository contains several small samples on different matching versions of `Next.js` framework and `@module-federation/nextjs-mf` plugin.
 
-The samples prefixed with "shared-deps" has examples on dependency sharing and the interation between host and remote, always trying to maintain the host's version over the remote.
+The samples prefixed with "shared-deps" have dependency sharing and the interaction between host and remote always trying to maintain the host's version over the remote.
 
-![npm](https://img.shields.io/npm/dw/@module-federation/nextjs-mf)
+## Table of Compatibility (so far)
+
+| Next.js / MF Plugin |        6.4.0       |        6.7.1       |      8.1.0-canary.7     |
+| :-----------------: | :----------------: | :----------------: | :---------------------: |
+| **13.3.1**          | :white_check_mark: | :white_check_mark: | :grey_question:         |
+| **13.3.4**          | :white_check_mark: | :white_check_mark: | :grey_question:         |
+| **13.4.7**          | :white_check_mark: | :white_check_mark: | :grey_question:         |
+| **~13.4.8**         | :x:                | :x:                | :grey_question:         |
+| **13.5.6**          | :x:                | :x:                | :white_check_mark:      |
+| **14.0.2**          | :x:                | :x:                | :grey_question:         |
 
 ## Sample Structure
 
