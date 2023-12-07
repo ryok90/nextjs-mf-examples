@@ -12,7 +12,7 @@ The samples prefixed with "shared-deps" have dependency sharing and the interact
 | **13.3.1**          | :white_check_mark: | :white_check_mark: | :grey_question:         |
 | **13.3.4**          | :white_check_mark: | :white_check_mark: | :grey_question:         |
 | **13.4.7**          | :white_check_mark: | :white_check_mark: | :grey_question:         |
-| **~13.4.8**         | :x:                | :x:                | :grey_question:         |
+| **~13.4.8**         | :x:                | :x:                | :white_check_mark:      |
 | **13.5.6**          | :x:                | :x:                | :white_check_mark:      |
 | **14.0.2**          | :x:                | :x:                | :grey_question:         |
 
