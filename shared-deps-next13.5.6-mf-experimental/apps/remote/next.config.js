@@ -1,4 +1,5 @@
 const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
+const path = require('path');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -18,8 +19,8 @@ const nextConfig = {
           'local-package': {
             version: '1.5.0',
             requiredVersion: '1.5.0',
-            // strictVersion: true,
-            // singleton: true,
+            strictVersion: true,
+            singleton: true,
           },
         },
       })

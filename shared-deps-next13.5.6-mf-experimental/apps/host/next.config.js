@@ -19,7 +19,7 @@ const nextConfig = {
           'local-package': {
             version: '1.0.0',
             requiredVersion: '1.0.0',
-            // strictVersion: true,
+            strictVersion: true,
             singleton: true,
           },
         },
