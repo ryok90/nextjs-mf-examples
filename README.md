@@ -33,6 +33,12 @@ The samples prefixed with "shared-deps" have dependency sharing and the interact
 
 ## How to run the sample
 
+Install the dependencies using `npm`:
+
+```bash
+npm i
+```
+
 To run the samples in development mode, run the following command:
 
 ```bash

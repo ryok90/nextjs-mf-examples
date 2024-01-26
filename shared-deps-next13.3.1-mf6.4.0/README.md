@@ -1,14 +1,6 @@
-# Template
+# Next.js + MF Example
 
-This is a template for creating a new Next.js + MF sample.
-
-## Deploy to Zephyr Cloud
-
-Click the button below to deploy this sample to Zephyr Cloud.
-
-<!-- TODO: replace the badge button below with Deploy to Zephyr Button -->
-
-![npm](https://img.shields.io/npm/dw/@module-federation/nextjs-mf)
+This is an example for the use of the Next.js framework using the Module Federation webpack plugin.
 
 ## Sample Structure
 
@@ -26,6 +18,12 @@ Click the button below to deploy this sample to Zephyr Cloud.
 - [Tailwind CSS](https://tailwindcss.com/)
 
 ## How to run the sample
+
+Install the dependencies using `npm`:
+
+```bash
+npm i
+```
 
 To run the sample in development mode, run the following command:
 

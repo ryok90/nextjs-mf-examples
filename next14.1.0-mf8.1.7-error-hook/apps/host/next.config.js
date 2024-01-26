@@ -13,7 +13,9 @@ const nextConfig = {
         filename: 'static/chunks/remoteEntry.js',
         extraOptions: {},
         remotes: {
-          remote: `remote@http://localhost:3011/_next/static/${remoteDir}/remoteEntry.js`,
+          // wrong port to induce module loading error
+          remote: `remote@http://localhost:3012/_next/static/${remoteDir}/remoteEntry.js`,
+          // remote: `remote@http://localhost:3011/_next/static/${remoteDir}/remoteEntry.js`,
         },
         shared: {},
         // @ts-ignore
