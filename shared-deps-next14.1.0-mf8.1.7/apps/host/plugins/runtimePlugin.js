@@ -18,7 +18,7 @@ function runtimePlugin() {
           }
 
           args.resolver = function () {
-            shareScopeMap[scope][pkgName][version] = host.options.shared[pkgName]; // replace local share scope manually with desired module
+            shareScopeMap[scope][pkgName][version] = host.options.shared[pkgName];
             return shareScopeMap[scope][pkgName][version];
           };
           return args;

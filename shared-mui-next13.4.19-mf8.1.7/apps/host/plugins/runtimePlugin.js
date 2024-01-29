@@ -9,16 +9,12 @@ function runtimePlugin() {
           const { shareScopeMap, scope, pkgName, version, GlobalFederation } =
             args;
 
-          if (!pkgName.includes('@mui/')) return args;
-
           const host = GlobalFederation['__INSTANCES__'][0];
 
-          if (!host) {
-            return args;
-          }
+          if (!host || !pkgName.includes('@mui/')) return args;
 
           args.resolver = function () {
-            shareScopeMap[scope][pkgName][version] = host.options.shared[pkgName]; // replace local share scope manually with desired module
+            shareScopeMap[scope][pkgName][version] = host.options.shared[pkgName];
             return shareScopeMap[scope][pkgName][version];
           };
           return args;
