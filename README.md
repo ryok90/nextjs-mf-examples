@@ -7,7 +7,7 @@ The samples prefixed with "shared-deps" have dependency sharing and the interact
 
 ## Basic Compatibility Table (WIP)
 
-| Next.js / MF Plugin |        6.4.0       |        6.7.1       |      8.1.0-canary.7     |
+| Next.js / MF Plugin |        6.4.0       |        6.7.1       |      8.1.7     |
 | :-----------------: | :----------------: | :----------------: | :---------------------: |
 |      **13.3.1**     | :white_check_mark: | :white_check_mark: | :white_check_mark:      |
 |      **13.3.4**     | :white_check_mark: | :white_check_mark: | :white_check_mark:      |
@@ -20,8 +20,8 @@ The samples prefixed with "shared-deps" have dependency sharing and the interact
 
 ```
 - template
-  ├ host            (A nextjs@13+ host app)
-  ├ remote          (A nextjs@13+ remote app)
+  ├ host            (A Next.js host app)
+  ├ remote          (A Next.js remote app)
   ├ package.json    (Package file with scripts to run all apps at once)
   └ README.md       (This readme file to explain how to run the sample)
 ```

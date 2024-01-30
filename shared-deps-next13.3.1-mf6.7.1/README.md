@@ -6,8 +6,8 @@ This is an example for the use of the Next.js framework using the Module Federat
 
 ```
 - template
-  ├ host            (A nextjs@13+ host app)
-  ├ remote          (A nextjs@13+ remote app)
+  ├ host            (A Next.js host app)
+  ├ remote          (A Next.js remote app)
   ├ package.json    (Package file with scripts to run all apps at once)
   └ README.md       (This readme file to explain how to run the sample and deploy it using Zephyr)
 ```
