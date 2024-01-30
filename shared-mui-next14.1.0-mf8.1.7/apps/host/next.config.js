@@ -30,9 +30,9 @@ const nextConfig = {
           '@mui/': {},
         },
         // @ts-ignore
-        // runtimePlugins: [
-        //   require.resolve(path.join(__dirname, './plugins/runtimePlugin')),
-        // ],
+        runtimePlugins: [
+          require.resolve(path.join(__dirname, './plugins/runtimePlugin')),
+        ],
       })
     );
 
