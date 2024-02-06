@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@module-federation/nextjs-mf": "8.1.7",
+    "@module-federation/nextjs-mf": "8.1.10",
     "local-package": "file:../../../local-package/v1.0.0",
     "next": "13.3.1",
     "react": "18.2.0",
