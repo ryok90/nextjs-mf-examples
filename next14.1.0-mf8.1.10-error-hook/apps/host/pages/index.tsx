@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React, { Suspense, lazy } from 'react';
 import type { TableData } from 'remote/table';
 import nextpkg from 'next/package.json';
 import mfpkg from '@module-federation/nextjs-mf/package.json';
@@ -86,7 +86,9 @@ export function Index() {
       </ul>
       <h3 className="mt-8">The component below comes from the remote app</h3>
       <div className="mt-4 border-4 border-dashed border-rose-500 p-16 rounded-lg w-full">
-        <Table data={tableData} />
+        <Suspense fallback={"Loading..."} >
+          <Table data={tableData} />
+        </Suspense>
       </div>
     </section>
   );
