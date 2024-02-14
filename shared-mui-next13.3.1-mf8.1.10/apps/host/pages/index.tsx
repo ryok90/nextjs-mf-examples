@@ -99,7 +99,7 @@ export function Index() {
       <div className="mt-4 border-4 border-dashed border-rose-500 p-8 rounded-lg w-full">
         <Table data={tableData} />
       </div>
-      <h3 className="mt-4 text-center">The component below also comes from the<br />remote app but it is expected to fail.</h3>
+      <h3 className="mt-4 text-center">The component below should be called from<br />the remote app but is expected to fail.</h3>
       <div className="mt-4 border-4 border-dashed border-rose-500 p-8 rounded-lg flex justify-center">
         <ForcedImportError />
       </div>

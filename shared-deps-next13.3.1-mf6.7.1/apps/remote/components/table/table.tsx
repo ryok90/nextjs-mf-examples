@@ -17,7 +17,7 @@ export function Table({ data }: TableProps) {
     <>
       <h3 className="text-center font-bold">
         This is the <span className="text-yellow-700">local-package</span>{' '}
-        version being call from remote:{' '}
+        version being called from remote:{' '}
         <span className={styles.redText}>[{localPackage()}]</span>
       </h3>
       <table className={`${styles.table} mt-6`}>

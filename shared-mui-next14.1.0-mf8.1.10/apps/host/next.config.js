@@ -13,7 +13,7 @@ const nextConfig = {
         filename: `static/${remoteDir}/remoteEntry.js`,
         extraOptions: {},
         remotes: {
-          remote: `remote@http://localhost:3011/_next/static/${remoteDir}/remoteEntry.js`,
+          remote: `remote@https://[environment]/_next/static/${remoteDir}/remoteEntry.js`,
         },
         shared: {
           // Since Next.js 13.5, there has been an optimization in place for

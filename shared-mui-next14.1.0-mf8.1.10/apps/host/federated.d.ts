@@ -3,3 +3,8 @@ declare module 'remote/table' {
   import table from '@remote/components/table/table';
   export default table;
 }
+
+declare module 'remote/error' {
+  export default () => null;
+}
+

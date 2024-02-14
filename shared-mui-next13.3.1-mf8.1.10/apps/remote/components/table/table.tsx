@@ -23,7 +23,7 @@ export function Table({ data }: TableProps) {
       </div>
       <h3 className="text-center font-bold mt-4">
         This is the <span className="text-yellow-700">@mui/material</span>{' '}
-        version being call from remote:{' '}
+        version being called from remote:{' '}
         <span className={styles.redText}>[{muipkg.version}]</span>
       </h3>
       <table className={`${styles.table} mt-6`}>
