@@ -27,7 +27,10 @@ const nextConfig = {
           // References:
           // - https://nextjs.org/docs/app/api-reference/next-config-js/optimizePackageImports
           // - https://github.com/webpack/webpack.js.org/issues/5476
-          '@mui/': {},
+          '@mui/': {
+            version: "*",
+            requiredVersion: "*"
+          }
         },
         // @ts-ignore
         runtimePlugins: [
