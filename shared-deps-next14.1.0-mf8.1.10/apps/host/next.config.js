@@ -27,7 +27,7 @@ const nextConfig = {
         runtimePlugins: [
           require.resolve(path.join(__dirname, './plugins/runtimePlugin')),
         ],
-      })
+      }),
     );
 
     return config;

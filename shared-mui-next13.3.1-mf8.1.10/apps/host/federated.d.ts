@@ -7,4 +7,3 @@ declare module 'remote/table' {
 declare module 'remote/error' {
   export default () => null;
 }
-

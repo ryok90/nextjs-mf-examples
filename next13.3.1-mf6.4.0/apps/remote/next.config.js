@@ -17,7 +17,7 @@ const nextConfig = {
           './table': './components/table/table',
         },
         shared: {},
-      })
+      }),
     );
 
     return config;

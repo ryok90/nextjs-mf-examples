@@ -1,8 +1,7 @@
 // Invoked if loading a federated module fails,
 // enabling custom error handling.
 /** @type {import('@module-federation/runtime').FederationRuntimePlugin['errorLoadRemote']} */
-const errorLoadRemote = async({ id, error, from, origin }) => {
-
+const errorLoadRemote = async ({ id, error, from, origin }) => {
   // Import custom component to show remote loading error.
   const component = (await import('../../components/error')).default;
 
@@ -20,6 +19,6 @@ const errorLoadRemote = async({ id, error, from, origin }) => {
   }
 
   return mod;
-}
+};
 
 module.exports = errorLoadRemote;

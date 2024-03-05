@@ -29,4 +29,3 @@
 .tableRow:nth-child(even) {
   @apply bg-gray-50;
 }
-

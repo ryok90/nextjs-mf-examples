@@ -1,7 +1,6 @@
 const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
 const lo = require('../../../local-package/v1.0.0');
 
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack(config, options) {
@@ -26,7 +25,7 @@ const nextConfig = {
             // singleton: true,
           },
         },
-      })
+      }),
     );
 
     return config;

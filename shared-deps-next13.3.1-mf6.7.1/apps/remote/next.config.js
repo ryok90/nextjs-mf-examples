@@ -24,7 +24,7 @@ const nextConfig = {
             singleton: true,
           },
         },
-      })
+      }),
     );
 
     return config;

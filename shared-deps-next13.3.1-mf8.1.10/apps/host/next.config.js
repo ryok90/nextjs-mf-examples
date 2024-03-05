@@ -2,7 +2,6 @@ const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
 const lo = require('../../../local-package/v1.0.0');
 const path = require('path');
 
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack(config, options) {
@@ -24,7 +23,7 @@ const nextConfig = {
         runtimePlugins: [
           require.resolve(path.join(__dirname, './plugins/runtimePlugin')),
         ],
-      })
+      }),
     );
 
     return config;

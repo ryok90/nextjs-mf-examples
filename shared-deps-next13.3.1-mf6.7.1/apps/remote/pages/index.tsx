@@ -38,11 +38,15 @@ export function Index() {
         </div>
         <div className="text-center">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Welcome to the <span className="text-rose-600">remote application</span>
+            Welcome to the{' '}
+            <span className="text-rose-600">remote application</span>
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            This is a template for a remote application you can get started by editing{' '}
-            <code className="text-sm font-bold text-gray-900">pages/index.tsx</code>
+            This is a template for a remote application you can get started by
+            editing{' '}
+            <code className="text-sm font-bold text-gray-900">
+              pages/index.tsx
+            </code>
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a

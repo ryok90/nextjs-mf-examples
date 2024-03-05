@@ -1,4 +1,5 @@
 # Next.js <> Module Federation Plugin - Version Matching
+
 ![npm](https://img.shields.io/npm/dw/@module-federation/nextjs-mf)
 
 This repository contains several small samples on different matching versions of `Next.js` framework and `@module-federation/nextjs-mf` plugin.
@@ -7,14 +8,14 @@ The samples prefixed with "shared-deps" have dependency sharing and the interact
 
 ## Basic Compatibility Table (WIP)
 
-| Next.js / MF Plugin |        6.4.0       |        6.7.1       |      8.1.7     |
-| :-----------------: | :----------------: | :----------------: | :---------------------: |
-|      **13.3.1**     | :white_check_mark: | :white_check_mark: | :white_check_mark:      |
-|      **13.3.4**     | :white_check_mark: | :white_check_mark: | :white_check_mark:      |
-|      **13.4.7**     | :white_check_mark: | :white_check_mark: | :white_check_mark:      |
-|     **~13.4.8**     | :x:                | :x:                | :white_check_mark:      |
-|      **13.5.6**     | :x:                | :x:                | :white_check_mark:      |
-|     **^14.0.0**     | :x:                | :x:                | :white_check_mark:      |
+| Next.js / MF Plugin |       6.4.0        |       6.7.1        |       8.1.10       |
+| :-----------------: | :----------------: | :----------------: | :----------------: |
+|     **13.3.1**      | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+|     **13.3.4**      | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+|     **13.4.7**      | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+|     **~13.4.8**     |        :x:         |        :x:         | :white_check_mark: |
+|     **13.5.6**      |        :x:         |        :x:         | :white_check_mark: |
+|     **^14.1.0**     |        :x:         |        :x:         | :white_check_mark: |
 
 ## Sample Structure
 

@@ -1,8 +1,7 @@
-// This hook will be used to override the dependency (Mui) coming from the remote with 
+// This hook will be used to override the dependency (Mui) coming from the remote with
 // one from the host.
 /** @type {import('@module-federation/runtime').FederationRuntimePlugin['beforeInit']} */
 const beforeInit = (args) => {
-
   // Push custom plugin to the MF GLOBAL registry to run on every remote.
   __FEDERATION__.__GLOBAL_PLUGIN__.push({
     name: 'next-override-deps-plugin',
@@ -29,6 +28,6 @@ const beforeInit = (args) => {
     },
   });
   return args;
-}
+};
 
-module.exports = beforeInit
+module.exports = beforeInit;

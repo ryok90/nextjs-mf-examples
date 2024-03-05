@@ -22,7 +22,7 @@ const nextConfig = {
             singleton: false,
           },
         },
-      })
+      }),
     );
 
     return config;

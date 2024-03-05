@@ -15,7 +15,7 @@ const nextConfig = {
           remote: `remote@http://localhost:3011/_next/static/${remoteDir}/remoteEntry.js`,
         },
         shared: {},
-      })
+      }),
     );
 
     return config;

@@ -18,7 +18,8 @@ function runtimePlugin() {
           }
 
           args.resolver = function () {
-            shareScopeMap[scope][pkgName][version] = host.options.shared[pkgName];
+            shareScopeMap[scope][pkgName][version] =
+              host.options.shared[pkgName];
             return shareScopeMap[scope][pkgName][version];
           };
           return args;
@@ -30,4 +31,3 @@ function runtimePlugin() {
 }
 
 module.exports = runtimePlugin;
-

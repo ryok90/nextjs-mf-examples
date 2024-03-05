@@ -2,7 +2,7 @@ function runtimePlugin() {
   return {
     name: 'custom-plugin-next-js-mf-9999',
     async errorLoadRemote({ id, error, from, origin }) {
-      const pg = (await import('../components/error')).default
+      const pg = (await import('../components/error')).default;
 
       let mod;
       if (from === 'build') {
@@ -22,4 +22,3 @@ function runtimePlugin() {
 }
 
 module.exports = runtimePlugin;
-

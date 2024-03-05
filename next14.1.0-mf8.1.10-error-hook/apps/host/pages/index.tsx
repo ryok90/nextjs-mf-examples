@@ -86,7 +86,7 @@ export function Index() {
       </ul>
       <h3 className="mt-8">The component below comes from the remote app</h3>
       <div className="mt-4 border-4 border-dashed border-rose-500 p-16 rounded-lg w-full">
-        <Suspense fallback={"Loading..."} >
+        <Suspense fallback={'Loading...'}>
           <Table data={tableData} />
         </Suspense>
       </div>

@@ -20,7 +20,7 @@ const beforeRequest = (args) => {
     if (remoteEntries[name] && 'entry' in remote) {
       remote.entry = remote.entry.replace(
         'https://[environment]',
-        remoteEntries[name]
+        remoteEntries[name],
       );
     }
   });

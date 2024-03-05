@@ -28,15 +28,15 @@ const nextConfig = {
           // - https://nextjs.org/docs/app/api-reference/next-config-js/optimizePackageImports
           // - https://github.com/webpack/webpack.js.org/issues/5476
           '@mui/': {
-            version: "*",
-            requiredVersion: "*"
-          }
+            version: '*',
+            requiredVersion: '*',
+          },
         },
         // @ts-ignore
         runtimePlugins: [
           require.resolve(path.join(__dirname, './plugins/runtimePlugin')),
         ],
-      })
+      }),
     );
 
     return config;
