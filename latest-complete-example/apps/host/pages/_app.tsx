@@ -4,6 +4,8 @@ import { StyledEngineProvider } from '@mui/material';
 
 import './globals.css';
 
+import '../mf-config/init';
+
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <StyledEngineProvider injectFirst>

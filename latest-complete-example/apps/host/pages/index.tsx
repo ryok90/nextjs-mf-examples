@@ -4,12 +4,26 @@ import type { TableData } from 'remote/table';
 import nextpkg from 'next/package.json';
 import mfpkg from '@module-federation/nextjs-mf/package.json';
 import muipkg from '@mui/material/package.json';
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
+import { loadRemote } from '@module-federation/runtime';
 
-const Table = dynamic(() => import('remote/table'), { ssr: false });
-const ForcedImportError = dynamic(() => import('remote/error'), { ssr: false });
+function DynamicRemoteComponent({
+  url,
+  props,
+}: {
+  url: string;
+  props?: Record<string, unknown>;
+}) {
+  // @ts-ignore
+  const Comp = dynamic(async () => loadRemote(url), { ssr: false });
+  return (
+    <React.Suspense fallback="Loading component">
+      <Comp {...props} />
+    </React.Suspense>
+  );
+}
 
-const tableData: TableData[] = [
+const data: TableData[] = [
   {
     name: 'San Francisco',
     age: 66,
@@ -97,7 +111,7 @@ export function Index() {
       </Button>
       <h3 className="mt-2">The component below comes from the remote app:</h3>
       <div className="mt-4 border-4 border-dashed border-rose-500 p-8 rounded-lg w-full">
-        <Table data={tableData} />
+        <DynamicRemoteComponent url="remote/table" props={{ data }} />
       </div>
       <h3 className="mt-4 text-center">
         The component below should be called from
@@ -105,7 +119,7 @@ export function Index() {
         the remote app but is expected to fail.
       </h3>
       <div className="mt-4 border-4 border-dashed border-rose-500 p-8 rounded-lg flex justify-center">
-        <ForcedImportError />
+        <DynamicRemoteComponent url="remote/error" />
       </div>
     </section>
   );

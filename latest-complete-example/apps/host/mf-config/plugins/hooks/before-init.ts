@@ -1,7 +1,10 @@
+import type { FederationRuntimePlugin } from '@module-federation/runtime';
+
 // This hook will be used to override the dependency (Mui) coming from the remote with
 // one from the host.
-/** @type {import('@module-federation/runtime').FederationRuntimePlugin['beforeInit']} */
-const beforeInit = (args) => {
+const beforeInit: FederationRuntimePlugin['beforeInit'] = (args) => {
+  console.log('beforeInit: ', args)
+
   // Push custom plugin to the MF GLOBAL registry to run on every remote.
   __FEDERATION__.__GLOBAL_PLUGIN__.push({
     name: 'next-override-deps-plugin',
@@ -20,7 +23,7 @@ const beforeInit = (args) => {
       // We replace the resolver function
       // Replace the dependency with the host's to override whichever one they are using.
       args.resolver = function () {
-        console.log('replacing: ', pkgName);
+        // console.log('replacing: ', pkgName);
         shareScopeMap[scope][pkgName][version] = host.options.shared[pkgName];
         return shareScopeMap[scope][pkgName][version];
       };
@@ -30,4 +33,4 @@ const beforeInit = (args) => {
   return args;
 };
 
-module.exports = beforeInit;
+export default beforeInit;

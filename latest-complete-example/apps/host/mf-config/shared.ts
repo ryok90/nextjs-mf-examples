@@ -1,61 +1,135 @@
-import type { SharedObject, SharedConfig } from '@module-federation/utilities';
+import type { ShareArgs } from '@module-federation/runtime/dist/src/type';
+import * as nextDynamic from 'next/dynamic';
+import * as nextHead from 'next/head';
+import * as nextLink from 'next/link';
+import * as nextRouter from 'next/router';
+import * as nextImage from 'next/image';
+import * as nextScript from 'next/script';
+import * as react from 'react';
+import * as reactDom from 'react-dom';
+import * as reactJsxRuntime from 'react/jsx-runtime';
+import * as reactJsxDevRuntime from 'react/jsx-dev-runtime';
+import * as styledJsx from 'styled-jsx';
+import * as styledJsxStyle from 'styled-jsx/style';
+import * as styledJsxCss from 'styled-jsx/css';
+import * as mui from '@mui/material';
 
-const DEFAULT_SHARE_SCOPE: SharedObject = {
+export const shared: Record<string, ShareArgs> = {
   'next/dynamic': {
-    requiredVersion: undefined,
+    version: require('next/package.json').version,
+    lib: () => nextDynamic,
+    shareConfig: {
+      requiredVersion: false,
+    },
   },
   'next/head': {
-    requiredVersion: undefined,
+    version: require('next/package.json').version,
+    lib: () => nextHead,
+    shareConfig: {
+      requiredVersion: false,
+    },
   },
   'next/link': {
-    requiredVersion: undefined,
+    version: require('next/package.json').version,
+    lib: () => nextLink,
+    shareConfig: {
+      requiredVersion: false,
+    },
   },
   'next/router': {
-    requiredVersion: false,
+    version: require('next/package.json').version,
+    lib: () => nextRouter,
+    shareConfig: {
+      requiredVersion: false,
+    },
   },
   'next/image': {
-    requiredVersion: undefined,
+    version: require('next/package.json').version,
+    lib: () => nextImage,
+    shareConfig: {
+      requiredVersion: false,
+    },
   },
   'next/script': {
-    requiredVersion: undefined,
+    version: require('next/package.json').version,
+    lib: () => nextScript,
+    shareConfig: {
+      requiredVersion: false,
+    },
   },
   react: {
-    requiredVersion: false,
+    version: require('react/package.json').version,
+    lib: () => react,
+    shareConfig: {
+      requiredVersion: false,
+    },
   },
   'react/': {
-    requiredVersion: false,
+    version: require('react/package.json').version,
+    lib: () => react,
+    shareConfig: {
+      requiredVersion: false,
+    },
   },
   'react-dom/': {
-    requiredVersion: false,
+    version: require('react-dom/package.json').version,
+    lib: () => reactDom,
+    shareConfig: {
+      requiredVersion: false,
+    },
   },
   'react-dom': {
-    requiredVersion: false,
+    version: require('react-dom/package.json').version,
+    lib: () => reactDom,
+    shareConfig: {
+      requiredVersion: false,
+    },
   },
   'react/jsx-dev-runtime': {
-    requiredVersion: undefined,
+    version: require('react/package.json').version,
+    lib: () => reactJsxDevRuntime,
+    shareConfig: {
+      requiredVersion: false,
+    },
   },
   'react/jsx-runtime': {
-    requiredVersion: undefined,
+    version: require('react/package.json').version,
+    lib: () => reactJsxRuntime,
+    shareConfig: {
+      requiredVersion: false,
+    },
   },
   'styled-jsx': {
     version: require('styled-jsx/package.json').version,
-    requiredVersion: '^' + require('styled-jsx/package.json').version,
+    lib: () => styledJsx,
+    shareConfig: {
+      requiredVersion: '^' + require('styled-jsx/package.json').version,
+    },
   },
   'styled-jsx/style': {
     version: require('styled-jsx/package.json').version,
-    requiredVersion: '^' + require('styled-jsx/package.json').version,
+    lib: () => styledJsxStyle,
+    shareConfig: {
+      requiredVersion: '^' + require('styled-jsx/package.json').version,
+    },
   },
   'styled-jsx/css': {
     version: require('styled-jsx/package.json').version,
-    requiredVersion: '^' + require('styled-jsx/package.json').version,
+    lib: () => styledJsxCss,
+    shareConfig: {
+      requiredVersion: '^' + require('styled-jsx/package.json').version,
+    },
+  },
+  '@mui/material': {
+    version: require('@mui/material/package.json').version,
+    lib: () => mui,
+  },
+  '@mui/material/package.json': {
+    version: require('@mui/material/package.json').version,
+    lib: () => require('@mui/material/package.json'),
+  },
+  '@mui/material/Button': {
+    version: require('@mui/material/package.json').version,
+    lib: () => mui.Button,
   },
 };
-
-export const DEFAULT_SHARE_SCOPE_BROWSER: SharedObject = Object.entries(
-  DEFAULT_SHARE_SCOPE
-).reduce((acc, item) => {
-  const [key, value] = item as [string, SharedConfig];
-  acc[key] = { ...value, import: undefined, singleton: true };
-
-  return acc;
-}, {} as SharedObject);

@@ -4,7 +4,7 @@ import type { TableData } from 'remote/table';
 import nextpkg from 'next/package.json';
 import mfpkg from '@module-federation/nextjs-mf/package.json';
 import muipkg from '@mui/material/package.json';
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 
 const Table = dynamic(() => import('remote/table'), { ssr: false });
 const ForcedImportError = dynamic(() => import('remote/error'), { ssr: false });
