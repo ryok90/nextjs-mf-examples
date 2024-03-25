@@ -1,7 +1,7 @@
 // Since this is runtime, you can add any environment variables here
 // and it will be able to parse according with the setup.
 const remoteEntries = {
-  remote: 'http://localhost:3011',
+  remote: process.env['NEXT_PUBLIC_REMOTE_URL'],
 };
 
 // Invoked before resolving a remote container,
