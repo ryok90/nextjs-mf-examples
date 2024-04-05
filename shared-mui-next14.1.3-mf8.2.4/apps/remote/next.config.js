@@ -7,6 +7,7 @@ const nextConfig = {
     const { isServer } = options;
     const remoteDir = isServer ? 'ssr' : 'chunks';
 
+    config.output.publicPath = 'http://localhost:3011/_next/';
     config.plugins.push(
       new NextFederationPlugin({
         name: 'remote',
@@ -23,7 +24,7 @@ const nextConfig = {
             singleton: false,
           },
         },
-      }),
+      })
     );
 
     return config;
