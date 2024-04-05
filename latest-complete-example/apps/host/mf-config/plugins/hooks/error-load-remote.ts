@@ -1,30 +1,25 @@
 import type { FederationRuntimePlugin } from '@module-federation/runtime/.';
 
+type ErrorLoadRemote = NonNullable<FederationRuntimePlugin['errorLoadRemote']>;
+
 // Invoked if loading a federated module fails,
 // enabling custom error handling.
-const errorLoadRemote: FederationRuntimePlugin['errorLoadRemote'] = async ({
-  id,
-  error,
-  from,
-  origin,
-}) => {
-  // Import custom component to show remote loading error.
-  const component = (await import('../../../components/error')).default;
+const errorLoadRemote = (): ErrorLoadRemote =>
+  async function ({ from, error }) {
+    // Import custom component to show remote loading error.
+    const component = (await import('../../../components/error')).default;
 
-  // Workaround to deal with build modules.
-  let mod;
-  if (from === 'build') {
-    mod = () => ({
-      __esModule: true,
-      default: component,
-    });
-  } else {
-    mod = {
+    // Workaround to deal with build modules.
+    if (from === 'build') {
+      return () => ({
+        __esModule: true,
+        default: component,
+      });
+    }
+
+    return {
       default: component,
     };
-  }
-
-  return mod;
-};
+  };
 
 export default errorLoadRemote;

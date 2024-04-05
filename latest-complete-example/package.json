@@ -5,10 +5,11 @@
     "./apps/*"
   ],
   "scripts": {
-    "dev": "concurrently \"cd apps/host && npm run dev\" \"cd apps/remote && npm run dev\"",
-    "build": "concurrently \"cd apps/host && npm run build\" \"cd apps/remote && npm run build\"",
-    "start": "concurrently \"cd apps/host && npm run start\" \"cd apps/remote && npm run start\"",
-    "lint": "concurrently \"cd apps/host && npm run lint\" \"cd apps/remote && npm run lint\""
+    "dev": "concurrently -n \"HOST,REMOTE\" -c \"yellow,blue\" --kill-others \"cd apps/host && npm run dev\" \"cd apps/remote && npm run dev\"",
+    "build": "concurrently -n \"HOST,REMOTE\" -c \"yellow,blue\" --kill-others  \"cd apps/host && npm run build\" \"cd apps/remote && npm run build\"",
+    "start": "concurrently -n \"HOST,REMOTE\" -c \"yellow,blue\" --kill-others  \"cd apps/host && npm run start\" \"cd apps/remote && npm run start\"",
+    "lint": "concurrently -n \"HOST,REMOTE\" -c \"yellow,blue\" --kill-others  \"cd apps/host && npm run lint\" \"cd apps/remote && npm run lint\"",
+    "dev-electron": "concurrently -n \"HOST,REMOTE\" -c \"yellow,blue\" --kill-others \"cd apps/host && npm run dev-electron\" \"cd apps/remote && npm run dev\""
   },
   "dependencies": {
     "concurrently": "^8.2.2"

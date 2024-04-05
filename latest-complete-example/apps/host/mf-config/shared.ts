@@ -14,7 +14,7 @@ import * as styledJsxStyle from 'styled-jsx/style';
 import * as styledJsxCss from 'styled-jsx/css';
 import * as mui from '@mui/material';
 
-export const shared: Record<string, ShareArgs> = {
+export const shared = (): Record<string, ShareArgs> => ({
   'next/dynamic': {
     version: require('next/package.json').version,
     lib: () => nextDynamic,
@@ -132,4 +132,4 @@ export const shared: Record<string, ShareArgs> = {
     version: require('@mui/material/package.json').version,
     lib: () => mui.Button,
   },
-};
+});

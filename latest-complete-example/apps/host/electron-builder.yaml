@@ -1,0 +1,12 @@
+appId: 'electron-next-example'
+productName: 'Electron Next.js Example'
+copyright: 'Copyright (c) 2024 ryok90'
+win:
+  target: ['dir', 'portable', 'zip']
+  icon: 'resources/icon.ico'
+linux:
+  target: ['dir', 'appimage', 'zip']
+  icon: 'resources/icon.png'
+mac:
+  target: ['dir', 'dmg', 'zip']
+  icon: 'resources/icon.icns'

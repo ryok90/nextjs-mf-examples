@@ -1,10 +1,16 @@
 import type { FederationRuntimePlugin } from '@module-federation/runtime';
 
+type BeforeInit = NonNullable<FederationRuntimePlugin['beforeInit']>;
+
 // This hook will be used to override the dependency (Mui) coming from the remote with
 // one from the host.
-const beforeInit: FederationRuntimePlugin['beforeInit'] = (args) => {
-  console.log('beforeInit: ', args)
+const beforeInit = (): BeforeInit =>
+  function (args) {
+    addGlobalResolveSharePlugin();
+    return args;
+  };
 
+const addGlobalResolveSharePlugin = () => {
   // Push custom plugin to the MF GLOBAL registry to run on every remote.
   __FEDERATION__.__GLOBAL_PLUGIN__.push({
     name: 'next-override-deps-plugin',
@@ -30,7 +36,6 @@ const beforeInit: FederationRuntimePlugin['beforeInit'] = (args) => {
       return args;
     },
   });
-  return args;
 };
 
 export default beforeInit;

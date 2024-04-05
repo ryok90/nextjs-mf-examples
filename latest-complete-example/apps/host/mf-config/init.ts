@@ -1,15 +1,15 @@
-import { init } from '@module-federation/runtime';
+import {
+  init,
+  preloadRemote,
+  registerRemotes,
+} from '@module-federation/runtime';
 import { shared } from './shared';
-import runtimePlugin from './plugins/runtime-plugin';
+import runtimePlugin from './plugins/runtime';
+import { getRemotes } from './remotes';
 
 init({
   name: 'next-host-runtime',
-  remotes: [
-    {
-      name: 'remote',
-      entry: `https://[environment]/_next/static/chunks/remoteEntry.js`,
-    },
-  ],
-  shared,
+  remotes: getRemotes(),
+  shared: shared(),
   plugins: [runtimePlugin()],
 });

@@ -1,43 +1,18 @@
-const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
-const path = require('path');
+const RemoteLoaderPlugin = require('./mf-config/plugins/remote-loader');
+
+const isElectronBuild = process.env['NEXT_PUBLIC_ELECTRON_BUILD'] === 'true';
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  // webpack(config, options) {
-  //   const { isServer } = options;
-  //   const remoteDir = isServer ? 'ssr' : 'chunks';
+const nextConfig = {};
 
-  //   config.plugins.push(
-  //     new NextFederationPlugin({
-  //       name: 'host',
-  //       filename: `static/${remoteDir}/remoteEntry.js`,
-  //       extraOptions: {},
-  //       remotes: {
-  //         remote: `remote@https://[environment]/_next/static/${remoteDir}/remoteEntry.js`,
-  //       },
-  //       shared: {
-  //         // Since Next.js 13.5, there has been an optimization in place for
-  //         // big libraries with barrel files and/or subpackages.
-  //         //
-  //         // In order to share libraries with this optmization we use a trailing slash to tell
-  //         // Webpack to match the requests made to these prefixes.
-  //         //
-  //         // This will also be needed in the remotes that you may want to override.
-  //         //
-  //         // References:
-  //         // - https://nextjs.org/docs/app/api-reference/next-config-js/optimizePackageImports
-  //         // - https://github.com/webpack/webpack.js.org/issues/5476
-  //         '@mui/': {},
-  //       },
-  //       // @ts-ignore
-  //       runtimePlugins: [
-  //         require.resolve(path.join(__dirname, './plugins/runtimePlugin')),
-  //       ],
-  //     }),
-  //   );
-
-  //   return config;
-  // },
+/** @type {import('next').NextConfig} */
+const electronBuildConfig = {
+  output: 'export',
+  images: { unoptimized: true },
+  webpack(config) {
+    config.plugins.push(new RemoteLoaderPlugin());
+    return config;
+  },
 };
 
-module.exports = nextConfig;
+module.exports = isElectronBuild ? electronBuildConfig : nextConfig;
