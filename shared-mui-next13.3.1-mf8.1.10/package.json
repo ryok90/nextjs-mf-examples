@@ -6,9 +6,9 @@
   ],
   "scripts": {
     "dev": "concurrently -n \"HOST,REMOTE\" -c \"yellow,blue\" --kill-others \"cd apps/host && npm run dev\" \"cd apps/remote && npm run dev\"",
-    "build": "concurrently -n \"HOST,REMOTE\" -c \"yellow,blue\" --kill-others \"cd apps/host && npm run build\" \"cd apps/remote && npm run build\"",
+    "build": "concurrently -n \"HOST,REMOTE\" -c \"yellow,blue\" \"cd apps/host && npm run build\" \"cd apps/remote && npm run build\"",
     "start": "concurrently -n \"HOST,REMOTE\" -c \"yellow,blue\" --kill-others \"cd apps/host && npm run start\" \"cd apps/remote && npm run start\"",
-    "lint": "concurrently -n \"HOST,REMOTE\" -c \"yellow,blue\" --kill-others \"cd apps/host && npm run lint\" \"cd apps/remote && npm run lint\""
+    "lint": "concurrently -n \"HOST,REMOTE\" -c \"yellow,blue\" \"cd apps/host && npm run lint\" \"cd apps/remote && npm run lint\""
   },
   "dependencies": {
     "concurrently": "^8.2.2"
