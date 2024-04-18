@@ -1,6 +1,4 @@
-import muipkg from '@mui/material/package.json';
 import styles from './table.module.css';
-import Button from '@mui/material/Button';
 
 export type TableData = {
   name: string;
@@ -16,18 +14,7 @@ export interface TableProps {
 export function Table({ data }: TableProps) {
   return (
     <>
-      <div className="flex justify-center">
-        <Button variant="outlined" color="error">
-          Buttom from MUI
-        </Button>
-      </div>
-      <h3 className="text-center mt-4">
-        This is the{' '}
-        <span className="text-yellow-700 font-bold">@mui/material</span>{' '}
-        version being called from remote:{' '}
-        <span className={styles.redText}>[{muipkg.version}]</span>
-      </h3>
-      <table className={`${styles.table} mt-6`}>
+      <table className={`${styles.table}`}>
         <thead>
           <tr>
             <th className={styles.tableHeader}>Name</th>

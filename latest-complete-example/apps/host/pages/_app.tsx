@@ -10,7 +10,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <StyledEngineProvider injectFirst>
       <Head>
-        <title>Welcome to template-host!</title>
+        <title>Welcome to the Host App!</title>
       </Head>
       <main className="app">
         <Component {...pageProps} />

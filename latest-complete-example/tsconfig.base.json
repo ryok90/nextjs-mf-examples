@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@host/*": ["apps/host/*"],
+      "@react_remote/*": ["apps/react-remote/*"],
       "@remote/*": ["apps/remote/*"]
     }
   },

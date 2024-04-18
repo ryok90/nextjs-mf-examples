@@ -109,7 +109,17 @@ export function Index() {
       <Button variant="outlined" className="mt-3">
         Button from MUI
       </Button>
-      <h3 className="mt-2">The component below comes from the remote app:</h3>
+      <h3 className="mt-2">
+        The component below comes from the{' '}
+        <span className="text-yellow-600 font-bold">react remote</span> app:
+      </h3>
+      <div className="mt-4 border-4 border-dashed border-yellow-500 p-8 rounded-lg w-full">
+        <DynamicRemoteComponent url="react_remote/table" props={{ data }} />
+      </div>
+      <h3 className="mt-2">
+        The component below comes from the{' '}
+        <span className="text-rose-600 font-bold">next remote</span> app:
+      </h3>
       <div className="mt-4 border-4 border-dashed border-rose-500 p-8 rounded-lg w-full">
         <DynamicRemoteComponent url="remote/table" props={{ data }} />
       </div>
