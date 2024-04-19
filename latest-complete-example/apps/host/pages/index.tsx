@@ -44,7 +44,7 @@ const data: TableData[] = [
 export function Index() {
   return (
     <section className="max-w-7xl mx-auto py-6 px-4 flex flex-col items-center justify-center">
-      <div className="flex flex-col items-center justify-center max-w-2xl">
+      <div className="flex flex-col items-center justify-center">
         <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
           This is a <strong>Zephyr Cloud</strong> example.{' '}
           <a
@@ -59,12 +59,14 @@ export function Index() {
         </div>
         <div className="text-center mt-4">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Welcome to the{' '}
-            <span className="text-blue-600">host application</span>
+            Welcome to the
+            <br />
+            <span className="text-blue-600">Next.js host application</span>
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-600">
             This is a template for a host application you can get started by
-            editing{' '}
+            editing
+            <br />
             <code className="text-sm font-bold text-gray-900">
               pages/index.tsx
             </code>
@@ -111,14 +113,14 @@ export function Index() {
       </Button>
       <h3 className="mt-2">
         The component below comes from the{' '}
-        <span className="text-yellow-600 font-bold">react remote</span> app:
+        <span className="text-yellow-600 font-bold">React remote</span> app:
       </h3>
       <div className="mt-4 border-4 border-dashed border-yellow-500 p-8 rounded-lg w-full">
         <DynamicRemoteComponent url="react_remote/table" props={{ data }} />
       </div>
-      <h3 className="mt-2">
+      <h3 className="mt-6">
         The component below comes from the{' '}
-        <span className="text-rose-600 font-bold">next remote</span> app:
+        <span className="text-rose-600 font-bold">Next.js remote</span> app:
       </h3>
       <div className="mt-4 border-4 border-dashed border-rose-500 p-8 rounded-lg w-full">
         <DynamicRemoteComponent url="remote/table" props={{ data }} />
@@ -126,7 +128,7 @@ export function Index() {
       <h3 className="mt-4 text-center">
         The component below should be called from
         <br />
-        the remote app but is expected to fail.
+        the <span className="text-rose-600 font-bold">Next.js remote</span> app but is expected to fail.
       </h3>
       <div className="mt-4 border-4 border-dashed border-rose-500 p-8 rounded-lg flex justify-center">
         <DynamicRemoteComponent url="remote/error" />

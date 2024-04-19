@@ -25,7 +25,7 @@ export function Table({ data }: TableProps) {
         This is the{' '}
         <span className="text-yellow-700 font-bold">@mui/material</span>{' '}
         version being called from remote:{' '}
-        <span className={styles.redText}>[{muipkg.version}]</span>
+        <span className={styles.redText + ' font-bold'}>[{muipkg.version}]</span>
       </h3>
       <table className={`${styles.table} mt-6`}>
         <thead>

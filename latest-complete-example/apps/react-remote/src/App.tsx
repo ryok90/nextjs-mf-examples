@@ -22,7 +22,7 @@ const tableData: TableData[] = [
 export function App() {
   return (
     <section className="max-w-7xl mx-auto py-12 px-4 flex flex-col items-center justify-center">
-      <div className="flex flex-col items-center justify-center max-w-2xl">
+      <div className="flex flex-col items-center justify-center">
         <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
           This is a <strong>Zephyr Cloud</strong> example.{' '}
           <a
@@ -37,12 +37,14 @@ export function App() {
         </div>
         <div className="text-center">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Welcome to the{' '}
-            <span className="text-yellow-600">react remote application</span>
+            Welcome to the
+            <br />
+            <span className="text-yellow-600">React remote application</span>
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            This is a template for a react remote application you can get started by
-            editing{' '}
+            This is a template for a react remote application you can get
+            started by editing
+            <br />
             <code className="text-sm font-bold text-gray-900">
               pages/App.tsx
             </code>
