@@ -52,6 +52,10 @@ const config = {
       exposes: {
         './table': './src/components/table/table',
       },
+      remotes: {
+        "remote1": "remote1@http://localhost:8081/remoteEntry.js",
+        "remote2": "remote2@http://localhost:8082/remoteEntry.js"
+      },
       shared: {
         react: {
           singleton: true,
@@ -66,6 +70,7 @@ const config = {
           requiredVersion: false,
         },
       },
+      runtimePlugins: [require.resolve("./createScriptWithTimeoutPlugin.js")],
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',

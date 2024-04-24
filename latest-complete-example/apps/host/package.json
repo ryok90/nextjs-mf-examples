@@ -6,12 +6,12 @@
   "main": "electron-config/main.js",
   "private": true,
   "scripts": {
-    "dev": "NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3010",
-    "build": "NEXT_PRIVATE_LOCAL_WEBPACK=true next build",
-    "start": "NEXT_PRIVATE_LOCAL_WEBPACK=true next start -p 3010",
+    "dev": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true && next dev -p 3010",
+    "build": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true && next build",
+    "start": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true && next start -p 3010",
     "lint": "next lint",
-    "dev-electron": "NEXT_PUBLIC_ELECTRON_BUILD=true concurrently -n \"NEXT,ELECTRON\" -c \"yellow,blue\" --kill-others \"next dev\" \"electron .\"",
-    "build-electron": "NEXT_PUBLIC_ELECTRON_BUILD=true npm run build && electron-builder"
+    "dev-electron": "cross-env NEXT_PUBLIC_ELECTRON_BUILD=true && concurrently -n \"NEXT,ELECTRON\" -c \"yellow,blue\" --kill-others \"next dev\" \"electron .\"",
+    "build-electron": "cross-env NEXT_PUBLIC_ELECTRON_BUILD=true && npm run build && electron-builder"
   },
   "dependencies": {
     "@emotion/cache": "^11.11.0",
