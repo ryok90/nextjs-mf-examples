@@ -6,6 +6,7 @@ type ErrorLoadRemote = NonNullable<FederationRuntimePlugin['errorLoadRemote']>;
 // enabling custom error handling.
 const errorLoadRemote = (): ErrorLoadRemote =>
   async function ({ from, error }) {
+    console.log('----------------- errorLoadRemote: ', error)
     // Import custom component to show remote loading error.
     const component = (await import('../../../components/error')).default;
 

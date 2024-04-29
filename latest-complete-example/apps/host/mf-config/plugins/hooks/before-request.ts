@@ -5,8 +5,9 @@ type BeforeRequest = NonNullable<FederationRuntimePlugin['beforeRequest']>;
 
 // Invoked before resolving a remote container,
 // useful for injecting the container or updating something ahead of the lookup.
-const beforeRequest = (isElectronBuild = false): BeforeRequest =>
+const beforeRequest = (): BeforeRequest =>
   function (args) {
+    console.log('--------------- beforeRequest: ', args.id)
     // Here you can optimize to replace only the one you want by the args.id
     // It has the exact import you want.
 
@@ -14,7 +15,7 @@ const beforeRequest = (isElectronBuild = false): BeforeRequest =>
     args.options.remotes.forEach((remote) => {
       // Matches and replaces with whatever you want
       if ('entry' in remote) {
-        remote.entry = getRemoteUrl(remote.entry, remote.name, isElectronBuild);
+        remote.entry = getRemoteUrl(remote.entry, remote.name);
       }
     });
 

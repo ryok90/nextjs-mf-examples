@@ -26,3 +26,7 @@
   @apply bg-gray-50;
 }
 
+.header {
+  @apply font-bold text-lg text-cyan-600 text-center
+}
+

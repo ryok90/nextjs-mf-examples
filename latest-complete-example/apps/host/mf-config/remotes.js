@@ -2,7 +2,7 @@
 // and it will be able to parse according with the setup.
 const remoteEntries = {
   remote: process.env['NEXT_PUBLIC_REMOTE_URL'],
-  "react_remote": process.env['NEXT_PUBLIC_REACT_REMOTE_URL']
+  react_remote: process.env['NEXT_PUBLIC_REACT_REMOTE_URL'],
 };
 
 const placeholder = 'https://[environment]';
@@ -10,13 +10,11 @@ const placeholder = 'https://[environment]';
 const getRemotes = () => [
   {
     name: 'remote',
-    entry: `${placeholder}/_next/static/chunks/remoteEntry.js`,
-    // entry: `${placeholder}/_next/static/chunks/mf-manifest.json`,
+    entry: `${placeholder}/_next/static/chunks/mf-manifest.json`,
   },
   {
     name: 'react_remote',
-    entry: `${placeholder}/remoteEntry.js`,
-    // entry: `${placeholder}/mf-manifest.json`,
+    entry: `${placeholder}/mf-manifest.json`,
   },
 ];
 
@@ -25,14 +23,7 @@ const getRemotes = () => [
  * @param {string} remote
  * @param {boolean} isElectronBuild
  */
-const getRemoteUrl = (url, remote, isElectronBuild = false) => {
-  // Electron build will have the all the remote files provided
-  // at build time on the host bundle
-  if (isElectronBuild && !url.includes(`/chunks/${remote}/`)) {
-    return url
-      .replace(placeholder, '')
-      .replace('/chunks/', `/chunks/${remote}/`);
-  }
+const getRemoteUrl = (url, remote) => {
   return url.replace(placeholder, remoteEntries[remote]);
 };
 

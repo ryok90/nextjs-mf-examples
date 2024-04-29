@@ -2,6 +2,7 @@ const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Configure headers for the manifest to avoid cors error
   headers: async () => [
     {
       source: '/_next/static/:slug*.json',

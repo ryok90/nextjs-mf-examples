@@ -20,11 +20,12 @@ const config = {
     hot: true,
     compress: true,
     historyApiFallback: true,
+    headers: { 'Access-Control-Allow-Origin': '*' },
   },
   output: {
     filename: '[name].[contenthash].js',
     chunkFilename: '[name].[contenthash].js',
-    publicPath: `auto`,
+    publicPath: 'http://localhost:3012/',
     clean: false,
   },
   module: {

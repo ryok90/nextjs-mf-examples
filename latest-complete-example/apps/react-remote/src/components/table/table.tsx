@@ -14,6 +14,7 @@ export interface TableProps {
 export function Table({ data }: TableProps) {
   return (
     <>
+      <h3 className={styles.header}>Testing Changes</h3>
       <table className={`${styles.table}`}>
         <thead>
           <tr>
