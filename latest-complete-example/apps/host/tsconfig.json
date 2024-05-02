@@ -16,6 +16,13 @@
     "incremental": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["next-env.d.ts", "federated.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "federated.d.ts",
+    "service-worker.d.ts",
+    "public/service-worker.js",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
   "exclude": ["node_modules"]
 }

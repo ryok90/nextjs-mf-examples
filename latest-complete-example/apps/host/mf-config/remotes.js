@@ -1,8 +1,6 @@
-// Since this is runtime, you can add any environment variables here
-// and it will be able to parse according with the setup.
 const remoteEntries = {
-  remote: process.env['NEXT_PUBLIC_REMOTE_URL'],
-  react_remote: process.env['NEXT_PUBLIC_REACT_REMOTE_URL'],
+  remote: process.env['NEXT_PUBLIC_REMOTE_URL'] ?? '',
+  react_remote: process.env['NEXT_PUBLIC_REACT_REMOTE_URL'] ?? '',
 };
 
 const placeholder = 'https://[environment]';
@@ -27,4 +25,4 @@ const getRemoteUrl = (url, remote) => {
   return url.replace(placeholder, remoteEntries[remote]);
 };
 
-module.exports = { getRemotes, getRemoteUrl };
+module.exports = { getRemotes, getRemoteUrl, remoteEntries };

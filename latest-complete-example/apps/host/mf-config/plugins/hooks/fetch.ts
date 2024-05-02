@@ -1,44 +1,43 @@
-const CACHE_KEY = 'MF_REMOTE_TIMESPAMP_';
+import { remoteEntries } from '../../remotes';
+import { FederationRuntimePlugin } from '@module-federation/runtime';
 
-const applyEntryCacheBust = async (res: Response, timestamp: string) => {
-  const body = await res.json();
-  body.metaData.remoteEntry.name += `?t=${timestamp}`;
-  return new Response(JSON.stringify(body));
+type FetchHook = NonNullable<FederationRuntimePlugin['fetch']>;
+
+const getRemoteName = (url: string) => {
+  const remote = Object.entries(remoteEntries).find(([_, baseUrl]) =>
+    url.startsWith(baseUrl)
+  );
+  return remote?.[0] ?? '';
 };
 
-const fetchHook = (): any => {
-  return async (url: string, _: any, args: any): Promise<Response | false> => {
-    const remoteName = args?.moduleInfo.name;
-    const newTimestamp = Date.now().toString();
+// The fetch hook is triggered every time a remote is request and it has a manifest file
+// as the entry point. In this hook we will be manipulating the cache bust key but also
+// provide the MF with the offline bundled remote (for the Electron app) made possible by
+// the RemoteLoaderPlugin.
+const fetchHook = (): FetchHook => {
+  return async (url: string): Promise<Response> => {
+    const timestamp = Date.now().toString();
     const newUrl = new URL(url);
-    newUrl.searchParams.set('t', newTimestamp);
+    newUrl.searchParams.set('t', timestamp);
     const response = await fetch(newUrl.toString()).catch(() => null);
-    const cacheKey = CACHE_KEY + remoteName;
+    const remoteName = getRemoteName(url);
 
-    if (response?.status === 200) {
-      localStorage.setItem(cacheKey, newTimestamp);
-      return applyEntryCacheBust(response, newTimestamp);
+    if (response?.ok) {
+      const body = await response.json();
+      body.metaData.remoteEntry.name += `?t=${timestamp}`;
+      return new Response(JSON.stringify(body));
     }
 
-    const cacheTimestamp = localStorage.getItem(cacheKey);
-    if (cacheTimestamp) {
-      newUrl.searchParams.set('t', cacheTimestamp);
-      const cacheRes = await fetch(newUrl.toString()).catch(() => null);
-      if (cacheRes?.status === 200) {
-        return applyEntryCacheBust(cacheRes, cacheTimestamp);
-      }
-    }
-
-    const basePath = `/_next/static/chunks/${remoteName}`;
-    const offlineRes = await fetch(basePath + newUrl.pathname)
+    const basePath = `/_next/static/chunks/${remoteName}/`;
+    const offlineRes = await fetch(basePath + 'mf-manifest.json')
       .then((res) => res.json())
       .catch(() => null);
 
-    if (offlineRes?.status === 200) {
-      return false;
+    if (offlineRes?.ok) {
+      return false as unknown as Response; // Typing is wrong on the hook.
     }
 
-    offlineRes.metaData.publicPath = basePath + '/';
+    offlineRes.metaData.publicPath = basePath;
     return new Response(JSON.stringify(offlineRes));
   };
 };

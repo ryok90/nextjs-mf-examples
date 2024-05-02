@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "webpack-cli serve",
+    "dev": "webpack-dev-server --hot",
     "build": "rimraf dist && webpack --mode production",
     "start": "http-server dist -p 3012 --cors"
   },
   "dependencies": {
-    "@module-federation/enhanced": "0.1.9",
+    "@module-federation/enhanced": "0.1.11",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -19,6 +19,7 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/webpack-env": "^1.18.4",
     "@webpack-cli/serve": "^2.0.5",
     "autoprefixer": "latest",
     "babel-loader": "^9.1.3",

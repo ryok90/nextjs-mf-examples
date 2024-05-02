@@ -3,8 +3,6 @@ const { getRemotes, getRemoteUrl } = require('../remotes');
 class RemoteLoaderPlugin {
   static defaultOptions = {};
 
-  // Any options should be passed in the constructor of your plugin,
-  // (this is a public API of your plugin).
   constructor(options = {}) {
     // Applying user-specified options over the default options
     // and making merged options further available to the plugin methods.
@@ -41,53 +39,25 @@ class RemoteLoaderPlugin {
           stage: Compilation.PROCESS_ASSETS_STAGE_SUMMARIZE,
         },
         async () => {
+          /**
+           * @param {string} file
+           * @param {string} source
+           */
           const emitAsset = (file, source) => {
             compilation.emitAsset(file, new RawSource(source));
           };
 
           await this.loadRemotes(emitAsset);
-        },
+        }
       );
     });
   }
 
+  /** @param {(file: string, source: string) => void} emitAsset */
   async loadRemotes(emitAsset) {
     const remotes = getRemotes();
     await Promise.all(
       remotes.flatMap(async ({ name, entry }) => {
-        // // --- Get original remote url
-        // const basePath = `static/chunks/${name}`;
-        // const oldUrl = getRemoteUrl(entry, name, false);
-
-        // // --- Load mf-manifest.json
-        // const manifest = await fetch(oldUrl).then((res) => res.json());
-        // const metadata = manifest.metaData;
-        // const publicPath = metadata.publicPath
-        // const outputFile = `${basePath}/mf-manifest.json`;
-        // emitAsset(outputFile, JSON.stringify(manifest));
-
-        // // --- Load remoteEntry.js
-        // const entryUrl = publicPath + metadata.remoteEntry.name;
-        // const entryFile = await fetch(entryUrl).then((res) => res.text());
-        // const entryPath = `${basePath}/${metadata.remoteEntry.name}`;
-        // emitAsset(entryPath, entryFile);
-
-        // // --- Load all remote exposes
-        // const exposes = manifest.exposes.flatMap((e) => [
-        //   ...e.assets.js.sync,
-        //   ...e.assets.css.sync,
-        // ]);
-        // await Promise.all(
-        //   exposes.map(async (path) => {
-        //     const url = publicPath + path;
-        //     const expose = await fetch(url).then((res) => res.text());
-        //     const file = `${basePath}/${path}`;
-        //     emitAsset(file, expose);
-        //   }),
-        // );
-
-        // ---------------------------------------------------------------------------
-
         // --- Get original remote url
         const basePath = `static/chunks/${name}`;
         const newPublicPath = `_next/${basePath}/`;
@@ -98,7 +68,7 @@ class RemoteLoaderPlugin {
         const oldPublicPath = manifest.metaData.publicPath;
         const manifestString = JSON.stringify(manifest, null, 2).replace(
           oldPublicPath,
-          newPublicPath,
+          newPublicPath
         );
         const outputFile = `${basePath}/mf-manifest.json`;
         emitAsset(outputFile, manifestString);
@@ -122,9 +92,9 @@ class RemoteLoaderPlugin {
             const expose = await fetch(url).then((res) => res.text());
             const file = `${basePath}/${path}`;
             emitAsset(file, expose);
-          }),
+          })
         );
-      }),
+      })
     );
   }
 }

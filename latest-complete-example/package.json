@@ -6,9 +6,9 @@
   ],
   "scripts": {
     "dev-host": "cd apps/host && npm run dev",
+    "dev-host-electron": "cd apps/host && npm run dev-electron",
     "dev-react-remote": "cd apps/react-remote && npm run dev",
     "dev-remote": "cd apps/remote && npm run dev",
-    "dev-electron-host": "cd apps/remote && npm run dev-electron",
     "build-host": "cd apps/host && npm run build",
     "build-react-remote": "cd apps/react-remote && npm run build",
     "build-remote": "cd apps/remote && npm run build",
@@ -17,8 +17,11 @@
     "start-react-remote": "cd apps/react-remote && npm run start",
     "start-remote": "cd apps/remote && npm run start",
     "dev": "concurrently -n \"HOST,REACT-REMOTE,REMOTE\" -c \"yellow,green,blue\" --kill-others \"npm run dev-host\" \"npm run dev-react-remote\" \"npm run dev-remote\"",
+    "dev-remotes": "concurrently -n \"REACT-REMOTE,REMOTE\" -c \"green,blue\" --kill-others \"npm run dev-react-remote\" \"npm run dev-remote\"",
     "build": "concurrently -n \"HOST,REACT-REMOTE,REMOTE\" -c \"yellow,green,blue\" \"npm run build-host\" \"npm run build-react-remote\" \"npm run build-remote\"",
+    "build-remotes": "concurrently -n \"REACT-REMOTE,REMOTE\" -c \"green,blue\" \"npm run build-react-remote\" \"npm run build-remote\"",
     "start": "concurrently -n \"HOST,REACT-REMOTE,REMOTE\" -c \"yellow,green,blue\" --kill-others \"npm run start-host\" \"npm run start-react-remote\" \"npm run start-remote\"",
+    "start-remotes": "concurrently -n \"REACT-REMOTE,REMOTE\" -c \"yellow,green,blue\" --kill-others \"npm run start-react-remote\" \"npm run start-remote\"",
     "dev-electron": "concurrently -n \"HOST,REACT-REMOTE,REMOTE\" -c \"yellow,green,blue\" --kill-others \"npm run dev-host-electron\" \"npm run dev-react-remote\" \"npm run dev-remote\"",
     "build-electron": "concurrently -n \"HOST,REACT-REMOTE,REMOTE\" -c \"yellow,green,blue\" \"npm run build-host-electron\" \"npm run build-react-remote\" \"npm run build-remote\""
   },

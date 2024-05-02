@@ -1,4 +1,6 @@
-const { ModuleFederationPlugin } = require('@module-federation/enhanced');
+const {
+  ModuleFederationPlugin,
+} = require('@module-federation/enhanced/webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
@@ -12,6 +14,7 @@ const config = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
   },
+  devtool: 'source-map',
   devServer: {
     static: {
       directory: path.resolve(__dirname, 'dist'),
@@ -26,8 +29,10 @@ const config = {
     filename: '[name].[contenthash].js',
     chunkFilename: '[name].[contenthash].js',
     publicPath: 'http://localhost:3012/',
+    uniqueName: 'react_remote',
     clean: false,
   },
+  optimization: { minimize: false },
   module: {
     rules: [
       {
@@ -50,9 +55,7 @@ const config = {
     new ModuleFederationPlugin({
       name: 'react_remote',
       filename: `remoteEntry.js`,
-      exposes: {
-        './table': './src/components/table/table',
-      },
+      exposes: { './table': './src/components/table/table' },
       shared: {
         react: {
           singleton: true,
@@ -73,7 +76,6 @@ const config = {
       favicon: './public/assets/favicon.ico',
     }),
   ],
-  devtool: 'source-map',
 };
 
 module.exports = config;

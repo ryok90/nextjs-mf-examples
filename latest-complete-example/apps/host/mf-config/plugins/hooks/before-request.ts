@@ -7,7 +7,6 @@ type BeforeRequest = NonNullable<FederationRuntimePlugin['beforeRequest']>;
 // useful for injecting the container or updating something ahead of the lookup.
 const beforeRequest = (): BeforeRequest =>
   function (args) {
-    console.log('--------------- beforeRequest: ', args.id)
     // Here you can optimize to replace only the one you want by the args.id
     // It has the exact import you want.
 

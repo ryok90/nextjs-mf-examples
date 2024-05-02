@@ -27,6 +27,6 @@
 }
 
 .header {
-  @apply font-bold text-lg text-cyan-600 text-center
+  @apply font-bold text-lg text-cyan-600 text-center mb-5
 }
 
